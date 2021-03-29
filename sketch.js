@@ -20,7 +20,7 @@ var stoneimage;
 
 function preload()
 {
-//boyimage=loadImage("../images/boy(1).png");
+boyimage=loadImage("images/boy.png");
 	
 }
 
@@ -30,10 +30,16 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-	ground=new Ground(400,600,800,15);
-tree = new Tree(620,543,50,100);
-mango = new Mango(600,500);
-stone= new Stone(100,500,20,20);
+	ground=new Ground(400,700,800,15);
+tree = new Tree(620,500,400,400);
+mango1 = new Mango(600,500);
+mango2= new Mango(500,500);
+mango3= new Mango(700,450);
+mango4= new Mango(700,350);
+mango5= new Mango(500,400);
+mango6= new Mango(600,420);
+stone= new Stone(100,500,30,30);
+slingshot= new Slingshot(stone.body,{x:100,y:500})
 
 
 
@@ -44,15 +50,30 @@ stone= new Stone(100,500,20,20);
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background("white");
   ground.display();
   tree.display();
   stone.display();
-  mango.display();
- // boyimage.display();
+  mango1.display();
+  mango2.display();
+  mango3.display();
+  mango4.display();
+  mango5.display();
+  mango6.display();
+  slingshot.display();
+Image(boyimage,500,400,200,200)
   drawSprites();
  
 }
+function mouseDragged(){
+  Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY})
+}
+function mouseReleased(){
+  slingshot.fly()
+}
+
+
+
 
 
 
