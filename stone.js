@@ -14,8 +14,10 @@ class Stone {
     }
     display(){
       var pos =this.body.position;
-      rectMode(CENTER);
-      fill("brown");
-      rect(pos.x, pos.y, this.width, this.height);
+    //  rectMode(CENTER);
+      //fill("brown");
+      //rect(pos.x, pos.y, this.width, this.height);
+      imageMode(CENTER)
+      image(this.image,pos.x, pos.y, this.width, this.height)
     }
   };
